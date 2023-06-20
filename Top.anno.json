@@ -1,0 +1,42 @@
+[
+  {
+    "class":"firrtl.transforms.BlackBoxInlineAnno",
+    "target":"Top.CPU",
+    "name":"Top.CPU.inst_addr.v",
+    "text":"module BindsTo_0_CPU(\n  input         clock,\n  input         reset,\n  output        io_Write_PC,\n  output        io_Write_IR,\n  output        io_Write_Reg,\n  output [31:0] io_A,\n  output [31:0] io_B,\n  output [31:0] io_C,\n  output [31:0] io_F,\n  output        io_W_Rdata_s,\n  output [31:0] io_W_Data,\n  output [1:0]  io_PC_s,\n  output [31:0] io_M_R_Data,\n  output [31:0] io_IR,\n  output        io_Reg_C_s,\n  output [7:0]  io_PC,\n  output [3:0]  io_nzcv,\n  output        io_Mem_W_s,\n  output        io_Mem_Write,\n  output [1:0]  io_rd_s,\n  output [1:0]  io_ALU_A_s,\n  output [2:0]  io_ALU_B_s,\n  output [31:0] io_M_W_Data\n);\n\ninitial begin\n  $readmemh(\"mem.hex\", CPU.inst_addr);\nend\n                      endmodule\n\nbind CPU BindsTo_0_CPU BindsTo_0_CPU_Inst(.*);"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxResourceAnno",
+    "target":"Top.Display",
+    "resourceId":"/Display.v"
+  },
+  {
+    "class":"firrtl.annotations.LoadMemoryAnnotation",
+    "target":"Top.CPU.inst_addr",
+    "fileName":"mem.hex",
+    "hexOrBinary":"h",
+    "originalMemoryNameOpt":"inst_addr"
+  },
+  {
+    "class":"firrtl.options.TargetDirAnnotation",
+    "directory":"."
+  },
+  {
+    "class":"firrtl.options.OutputAnnotationFileAnnotation",
+    "file":"Top"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"."
+  }
+]
